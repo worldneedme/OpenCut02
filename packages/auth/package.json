@@ -5,19 +5,35 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./client": "./src/client.ts",
-    "./server": "./src/server.ts",
-    "./keys": "./src/keys.ts"
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    },
+    "./client": {
+      "import": "./src/client.ts",
+      "require": "./src/client.ts"
+    },
+    "./server": {
+      "import": "./src/server.ts",
+      "require": "./src/server.ts"
+    },
+    "./keys": {
+      "import": "./src/keys.ts",
+      "require": "./src/keys.ts"
+    },
+    "./package.json": "./package.json"
   },
   "dependencies": {
-    "@upstash/redis": "^1.31.0",
     "@opencut/db": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
     "better-auth": "^1.1.1",
     "zod": "^4.0.5"
   },
+  "peerDependencies": {
+    "@upstash/redis": "^1.31.0"
+  },
   "devDependencies": {
-    "@types/node": "^22.10.2"
+    "@types/node": "^22.10.2",
+    "@upstash/redis": "^1.31.0"
   }
 }
